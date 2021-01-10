@@ -1,7 +1,7 @@
 # Contador
 
 <h1 align="center">
-  <img alt="Contador" title="Contador" src="./app.jpg" width="500px"/>
+  <img alt="Contador" title="Contador" src="./app.jpg" width="200px"/>
 </h1>
  
 ## Objetivo
