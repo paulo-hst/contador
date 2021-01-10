@@ -1,14 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
 export default function App() {
 
+  const ICON_SIZE = 70
+  
   const [ count, setCount ] = useState(0)
 
   // Função - exemplo 1
-  const counter = () => {
+  const plus = () => {
     setCount(count + 1)
+  }
+  const minus = () => {
+    count !== 0 ? setCount(count - 1) : null
   }
 
   // Função - exemplo 2
@@ -18,19 +24,31 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleElement}>Contador</Text>
+      <Text style={styles.title}>Contador</Text>
 
-      <TouchableOpacity style={styles.buttonElement} onPress={ counter }>
-        <Text style={styles.buttonTextElement}>Clique Aqui!</Text>  
-      </TouchableOpacity>
+      <View style={styles.buttons}>
+        <TouchableOpacity style={styles.icon} onPress={ minus }>
+          <View>
+            <MaterialCommunityIcons name="minus-circle" size={ICON_SIZE} color='white' />  
+          </View>  
+        </TouchableOpacity>
 
-      <Text style={styles.textElement}>Valor: {count} </Text>
-      
-      <TouchableOpacity style={styles.resetElement} onPress={ reset }>
-        <Text style={styles.buttonTextElement}>Resetar</Text>  
-      </TouchableOpacity>
- 
-      <StatusBar style="auto" />
+        <View style={styles.value}>
+          <Text style={styles.valueText}>{count}</Text> 
+        </View>
+
+        <TouchableOpacity style={styles.icon} onPress={ plus }>
+          <View>
+            <MaterialCommunityIcons name="plus-circle" size={ICON_SIZE} color='white' />  
+          </View>  
+        </TouchableOpacity>
+    </View>
+
+    <TouchableOpacity style={styles.resetButton} onPress={ reset }>
+      <Text style={styles.resetText}>Resetar</Text>  
+    </TouchableOpacity>
+
+    <StatusBar style="auto" />
     </View>
   );
 }
@@ -43,46 +61,56 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  titleElement: {
+  title: {
     fontSize: 80,
-    top: -40,
+    top: -30,
     fontWeight: 'bold',
     color: 'white',
   },
 
-  buttonElement: {
-    width: '50%',
-    backgroundColor: '#00BFFF',
-    borderRadius: 5,
-    padding: 10,
-    marginTop: 30,
+  buttons: {
+    flexDirection: 'row',
+  },
 
+  icon: {
+    marginHorizontal: 10,
     justifyContent: 'center',
   },
+  
+  value: {
+    width: 70,
+    height: 70,
+    marginHorizontal: 10,
 
-  buttonTextElement: {
-    fontSize: 30,
+    backgroundColor: 'white',
+    borderRadius: 5,
+
+    justifyContent: 'center',
+    
+  },
+
+  valueText: {
+    fontSize: 40,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
   },
 
-  textElement: {
-    fontSize: 40,
-    marginTop: 30,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  
-
-  resetElement: {
+  resetButton: {
     width: '50%',
     backgroundColor: 'red',
     borderRadius: 5,
     padding: 10,
-    marginTop: 30,
+    marginTop: 50,
 
     justifyContent: 'center',
+  },
+
+  resetText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
   },
 
 });
