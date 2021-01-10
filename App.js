@@ -56,7 +56,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -78,15 +78,15 @@ const styles = StyleSheet.create({
   },
   
   value: {
-    width: 70,
+    minWidth: 70,
     height: 70,
     marginHorizontal: 10,
+    paddingHorizontal: 10,
 
     backgroundColor: 'white',
     borderRadius: 5,
 
     justifyContent: 'center',
-    
   },
 
   valueText: {
