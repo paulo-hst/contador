@@ -5,7 +5,7 @@
 </h1>
  
 ## Objetivo
-App que realiza contagem. Para exercício do React Hook useState.
+App que realiza acresce ou decresce o contato. Apenas para exercício do React Hook useState.
 
 ## Tecnologias
 - React Native
